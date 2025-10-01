@@ -1,36 +1,26 @@
-// Smooth Fade-In Animation + Skill Bars
+// Portfolio animations and smooth scroll
 document.addEventListener("DOMContentLoaded", function () {
+  // Fade-in effect
   const sections = document.querySelectorAll(".fade-in");
-  const skillFills = document.querySelectorAll(".skill-fill");
-
-  const observer = new IntersectionObserver((entries, observer) => {
+  const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
-
-        // Animate skill bars when skills section comes into view
-        if (entry.target.id === "skills") {
-          skillFills.forEach(fill => {
-            fill.style.width = getComputedStyle(fill).getPropertyValue("width"); // triggers CSS width
-          });
-        }
-
-        observer.unobserve(entry.target);
+        obs.unobserve(entry.target);
       }
     });
   }, { threshold: 0.2 });
 
-  sections.forEach(section => {
-    observer.observe(section);
-  });
+  sections.forEach(sec => observer.observe(sec));
 
-  // Smooth Scroll for Navbar
-  document.querySelectorAll("nav ul li a").forEach(anchor => {
+  // Smooth scroll for nav links
+  document.querySelectorAll('nav a').forEach(anchor => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
-      document.querySelector(this.getAttribute("href")).scrollIntoView({
-        behavior: "smooth"
-      });
+      const target = document.querySelector(this.getAttribute("href"));
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     });
   });
 });

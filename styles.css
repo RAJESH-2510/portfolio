@@ -1,166 +1,150 @@
-/* General Styles */
+/* General */
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f6f9;
+  background: #f4f6f9;
   color: #333;
+  scroll-behavior: smooth;
 }
 
 h1, h2, h3 {
   color: #1a54c9;
 }
 
-/* Header */
-header {
+/* Navbar */
+nav {
   background: #1a54c9;
-  color: white;
-  padding: 20px 0;
-  text-align: center;
+  padding: 12px;
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
-.header-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.profile-pic {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border: 3px solid #fff;
-}
-
-nav {
-  margin-top: 15px;
-}
-
 nav ul {
   list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0;
   padding: 0;
 }
 
 nav ul li {
-  display: inline;
   margin: 0 15px;
 }
 
 nav ul li a {
-  color: #ffdd57;
+  color: #fff;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: bold;
 }
 
 nav ul li a:hover {
-  color: #fff;
-  border-bottom: 2px solid #ffdd57;
+  color: #ffdd57;
+}
+
+/* Hero */
+header {
+  background: linear-gradient(135deg, #c23472, #19ac1b);
+  text-align: center;
+  padding: 60px 20px;
+  color: white;
+}
+
+header h1 {
+  font-size: 2.5rem;
+}
+
+header p {
+  font-size: 1.2rem;
+}
+
+.contact-icons span, .contact-icons a {
+  margin: 0 10px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
 }
 
 /* Sections */
 section {
-  max-width: 900px;
-  margin: 40px auto;
+  max-width: 1000px;
+  margin: 50px auto;
   padding: 20px;
-  background: #fff;
+  background: white;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  text-align: left;
 }
 
-/* Cards */
-.card {
+/* Education, Experience, Projects */
+.card, .timeline-item, .project-card {
   background: #f9f9f9;
   padding: 15px;
   border-radius: 8px;
   margin: 15px 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
-/* Projects */
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 20px;
 }
 
 .project-card {
-  background: #eaf2ff;
-  padding: 15px;
-  border-radius: 8px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  background: #fff3cd;
+  transition: transform 0.3s;
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  transform: scale(1.05);
 }
 
-/* Skills with Progress Bars */
-.skill {
-  margin: 20px 0;
+/* Skills Grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
 }
 
-.skill-name {
+.skill-card {
+  background: #eaf2ff;
+  padding: 15px;
+  border-radius: 8px;
   font-weight: bold;
-  margin-bottom: 5px;
+  text-align: center;
 }
 
-.skill-bar {
-  width: 100%;
-  background-color: #eee;
-  border-radius: 5px;
-  overflow: hidden;
+/* Contact */
+.contact-info {
+  text-align: center;
 }
 
-.skill-fill {
-  height: 14px;
-  background-color: #1a54c9;
-  width: 0;
-  transition: width 2s ease-in-out;
-  border-radius: 5px;
-}
-
-/* Custom Widths */
-.python { width: 90%; }
-.sql { width: 80%; }
-.ml { width: 85%; }
-.viz { width: 75%; }
-.comm { width: 95%; }
-
-/* Links */
-.email-link {
-  color: #d9534f;
-  font-weight: bold;
+.contact-info a {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  background: #1a54c9;
+  color: white;
   text-decoration: none;
 }
 
-.linkedin-link {
-  color: #0077b5;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.linkedin-link:hover,
-.email-link:hover {
-  text-decoration: underline;
+.contact-info a:hover {
+  background: #0077b5;
 }
 
 /* Footer */
 footer {
   background: #1a54c9;
-  color: white;
   text-align: center;
   padding: 15px;
+  color: white;
   margin-top: 40px;
 }
 
-/* Fade-in Animation */
+/* Animations */
 .fade-in {
   opacity: 0;
   transform: translateY(40px);
@@ -170,11 +154,4 @@ footer {
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .header-container {
-    flex-direction: column;
-  }
 }
